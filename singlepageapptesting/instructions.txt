@@ -1,0 +1,23 @@
+To run website:
+
+cd /home/traxaem/Desktop/dadtesting/mvnseleniumproject/samplewebsite
+python -m SimpleHTTPServer 11111
+
+
+open chrome:
+
+goto http://localhost:11111/testing.html
+
+click on Link to idea.sh
+
+Run all tests:
+mvn clean package
+
+Run specific test:
+mvn -Dtest=SuiteOrder test
+
+Run mvnseleniumproject/src/test/java/com/testing/selenium/SimpleTest
+
+
+
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Testing new Html</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <title>New Tests</title>
+</head>
+<div id="json-content">
+    <label>FirstName:
+        <input type="text" name="first-name" value="Ram"/>
+    </label>
+    <label>LastName:
+        <input type="text" name="last-name" value="Chandra"/>
+    </label>
+    <label>Age:
+        <input type="text" name="age" value="85">
+    </label>
+    </div>
+
+<p id="One"> This is the first paragraph</p>
+<span id="Two"> This is a span </span>
+
+<table id="Sample-Table">
+    <thead>
+    <tr>
+        <th>Col1</th>
+        <th>Col2</th>
+        <th>Col3</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="sample-row">
+        <td>Row1Item1</td>
+        <td>Row1Item2</td>
+        <td>Row1Item3</td>
+    </tr>
+    <tr class="sample-row">
+        <td>Row2Item1</td>
+        <td>Row2Item2</td>
+        <td>Row2Item3</td>
+    </tr>
+    <tr class="sample-row">
+        <td>Row3Item1</td>
+        <td>Row3Item2</td>
+        <td>Row3Item3</td>
+    </tr>
+    </tbody>
+
+</table>
+
+<body style="background-color: #68A6DC"></body>
+<br />
+<br />
+<br />
+<form id="Login-Form" method="get" action="http://localhost:11111/NewTests.html"/>
+        <label>UserName:</label>
+        <input type="text" name="username"/>
+        <br>
+        <label>PassWord:</label>
+        <input type="text" name="password"/>
+        <br>
+        <button id="submit">Submit</button>
+</form>
+
+<script type="text/javascript">
+
+    $("#sample-ajax-form").submit( function(e) {
+        e.preventDefault();
+        setTimeout(function() {
+            $("#notification-container").empty().hide();
+
+            var username = $("#sample-ajax-form input[name='sample-username']").val();
+            var password = $("#sample-ajax-form input[name='sample-password']").val();
+
+            if (!username || !password) {
+                $("#notification-container").append('<span class="error">Submission error!</span>');
+            } else {
+                $("#notification-container").append('<span class="success">Submission success!</span>');
+                $("#sample-ajax-form").hide();
+                $("#success-content").show(1000);
+            }
+
+            $("#notification-container").show(500);
+
+        }, 500);
+
+    });
+</script>
+</body>
+</html>

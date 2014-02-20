@@ -1,0 +1,782 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0xb6d44cb8, pid=29321, tid=1850207040
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_51-b13) (build 1.7.0_51-b13)
+# Java VM: Java HotSpot(TM) Server VM (24.51-b03 mixed mode linux-x86 )
+# Problematic frame:
+# V  [libjvm.so+0x483cb8]  java_lang_String::utf8_length(oopDesc*)+0x58
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x6b58e000):  JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_vm, id=29335, stack(0x6e42e000,0x6e47f000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=1 (SEGV_MAPERR), si_addr=0x00000008
+
+Registers:
+EAX=0x00000000, EBX=0xb7183c18, ECX=0x00000000, EDX=0x9e81df18
+ESP=0x6e47dd20, EBP=0x6e47dd28, ESI=0x00000000, EDI=0x00000ffc
+EIP=0xb6d44cb8, EFLAGS=0x00210246, CR2=0x00000008
+
+Top of Stack: (sp=0x6e47dd20)
+0x6e47dd20:   b7183c18 6b58e000 6e47dd78 b6d8f158
+0x6e47dd30:   9e81df18 6b58e130 6e47dd78 b66f217b
+0x6e47dd40:   6b58e130 9e81df18 b67649e0 b66ff16c
+0x6e47dd50:   6b10e32c 6e47df4c 6b58e000 00000000
+0x6e47dd60:   6b10e32c 6e47df4c 6b58e000 b66ff16c
+0x6e47dd70:   6e47df4c 6b58e130 6e47dda8 b66d1473
+0x6e47dd80:   6b58e130 6b10e32c 00000000 b66e7968
+0x6e47dd90:   00000008 00000032 6b10e32c b66ff16c 
+
+Instructions: (pc=0xb6d44cb8)
+0xb6d44c98:   02 31 d2 85 c0 74 04 8d 54 4e 0c 56 56 50 52 e8
+0xb6d44ca8:   d4 92 33 00 8d 65 f8 5b 5e 5d c3 90 8d 74 26 00
+0xb6d44cb8:   8b 46 08 eb dc 90 66 90 55 89 e5 57 56 53 83 ec
+0xb6d44cc8:   1c e8 00 00 00 00 5b 81 c3 4a ef 43 00 8b 83 6c 
+
+Register to memory mapping:
+
+EAX=0x00000000 is an unknown value
+EBX=0xb7183c18: <offset 0x8c2c18> in /usr/lib/jvm/java-7-oracle/jre/lib/i386/server/libjvm.so at 0xb68c1000
+ECX=0x00000000 is an unknown value
+EDX=0x9e81df18 is an oop
+java.lang.String 
+ - klass: 'java/lang/String'
+ESP=0x6e47dd20 is pointing into the stack for thread: 0x6b58e000
+EBP=0x6e47dd28 is pointing into the stack for thread: 0x6b58e000
+ESI=0x00000000 is an unknown value
+EDI=0x00000ffc is an unknown value
+
+
+Stack: [0x6e42e000,0x6e47f000],  sp=0x6e47dd20,  free space=319k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x483cb8]  java_lang_String::utf8_length(oopDesc*)+0x58
+V  [libjvm.so+0x4ce158]  jni_GetStringUTFChars+0xa8
+C  [libjdwp.so+0x9473]  value+0x93
+C  [libjdwp.so+0x12813]  debugLoop_run+0x303
+C  [libjdwp.so+0x26f7f]  connectionInitiated+0xbf
+C  [libjdwp.so+0x26fc0]  attachThread+0x30
+V  [libjvm.so+0x5736fc]  JvmtiAgentThread::call_start_function()+0x9c
+V  [libjvm.so+0x7996d9]  JavaThread::thread_main_inner()+0x109
+V  [libjvm.so+0x799833]  JavaThread::run()+0x123
+V  [libjvm.so+0x67e319]  java_start(Thread*)+0x119
+C  [libpthread.so.0+0x6d4c]  start_thread+0xcc
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x6a53d800 JavaThread "UrlChecker-2" daemon [_thread_blocked, id=29349, stack(0x6a25e000,0x6a2af000)]
+  0x6b206000 JavaThread "Thread-3" daemon [_thread_in_native, id=29348, stack(0x6a2af000,0x6a300000)]
+  0x6b204400 JavaThread "Thread-2" daemon [_thread_in_native, id=29347, stack(0x6a640000,0x6a691000)]
+  0x6b207000 JavaThread "process reaper" daemon [_thread_in_native, id=29346, stack(0x6ac01000,0x6ac1a000)]
+  0x6a535c00 JavaThread "Thread-1" [_thread_blocked, id=29344, stack(0x6a691000,0x6a6e2000)]
+  0x6b596000 JavaThread "Service Thread" daemon [_thread_blocked, id=29342, stack(0x6b816000,0x6b867000)]
+  0x6b594400 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=29341, stack(0x6ad7f000,0x6ae00000)]
+  0x6b592400 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=29340, stack(0x6af7f000,0x6b000000)]
+  0x6b100800 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=29339, stack(0x6b867000,0x6b8b8000)]
+  0x6b590800 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=29337, stack(0x6e22e000,0x6e27f000)]
+=>0x6b58e000 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_vm, id=29335, stack(0x6e42e000,0x6e47f000)]
+  0x6b584400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=29334, stack(0x6e62e000,0x6e67f000)]
+  0x6b575000 JavaThread "Finalizer" daemon [_thread_blocked, id=29333, stack(0x6e82e000,0x6e87f000)]
+  0x6b572800 JavaThread "Reference Handler" daemon [_thread_blocked, id=29332, stack(0x6ea2e000,0x6ea7f000)]
+  0xb670bc00 JavaThread "main" [_thread_blocked, id=29322, stack(0xb6844000,0xb6895000)]
+
+Other Threads:
+  0x6b571000 VMThread [stack: 0x6b67f000,0x6b700000] [id=29331]
+  0x6b598400 WatcherThread [stack: 0x6acfe000,0x6ad7f000] [id=29343]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 19456K, used 13175K [0x9de00000, 0x9f380000, 0xb3380000)
+  eden space 16896K, 62% used [0x9de00000,0x9e85fa48,0x9ee80000)
+  from space 2560K, 99% used [0x9ee80000,0x9f0fe558,0x9f100000)
+  to   space 2560K, 0% used [0x9f100000,0x9f100000,0x9f380000)
+ ParOldGen       total 43520K, used 806K [0x73380000, 0x75e00000, 0x9de00000)
+  object space 43520K, 1% used [0x73380000,0x73449bc8,0x75e00000)
+ PSPermGen       total 16384K, used 6143K [0x6f380000, 0x70380000, 0x73380000)
+  object space 16384K, 37% used [0x6f380000,0x6f97fc58,0x70380000)
+
+Card table byte_map: [0x6f15f000,0x6f380000] byte_map_base: 0x6ede5400
+
+Polling page: 0xb77a8000
+
+Code Cache  [0xb3474000, 0xb36b4000, 0xb6474000)
+ total_blobs=201 nmethods=74 adapters=88 free_code_cache=48643Kb largest_free_block=49777216
+
+Compilation events (10 events):
+Event: 0.599 Thread 0x6b592400 nmethod 69 0xb34e49c8 code [0xb34e4b00, 0xb34e4f50]
+Event: 0.606 Thread 0x6b594400 nmethod 65 0xb34f1c88 code [0xb34f23e0, 0xb34f5bc0]
+Event: 0.651 Thread 0x6b592400   71             java.lang.StringBuilder::append (8 bytes)
+Event: 0.651 Thread 0x6b592400 nmethod 71 0xb34e5588 code [0xb34e5680, 0xb34e56dc]
+Event: 0.659 Thread 0x6b594400   72             java.lang.String::indexOf (7 bytes)
+Event: 0.663 Thread 0x6b594400 nmethod 72 0xb34e4588 code [0xb34e46a0, 0xb34e487c]
+Event: 0.685 Thread 0x6b592400   73             java.lang.String::substring (79 bytes)
+Event: 0.692 Thread 0x6b592400 nmethod 73 0xb34e3dc8 code [0xb34e3ee0, 0xb34e42d0]
+Event: 44.719 Thread 0x6b594400   74             java.util.HashMap::get (29 bytes)
+Event: 44.723 Thread 0x6b594400 nmethod 74 0xb34e3848 code [0xb34e3960, 0xb34e3b5c]
+
+GC Heap History (2 events):
+Event: 0.543 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 19456K, used 16896K [0x9de00000, 0x9f380000, 0xb3380000)
+  eden space 16896K, 100% used [0x9de00000,0x9ee80000,0x9ee80000)
+  from space 2560K, 0% used [0x9f100000,0x9f100000,0x9f380000)
+  to   space 2560K, 0% used [0x9ee80000,0x9ee80000,0x9f100000)
+ ParOldGen       total 43520K, used 0K [0x73380000, 0x75e00000, 0x9de00000)
+  object space 43520K, 0% used [0x73380000,0x73380000,0x75e00000)
+ PSPermGen       total 16384K, used 4963K [0x6f380000, 0x70380000, 0x73380000)
+  object space 16384K, 30% used [0x6f380000,0x6f858d28,0x70380000)
+Event: 0.548 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 19456K, used 2553K [0x9de00000, 0x9f380000, 0xb3380000)
+  eden space 16896K, 0% used [0x9de00000,0x9de00000,0x9ee80000)
+  from space 2560K, 99% used [0x9ee80000,0x9f0fe558,0x9f100000)
+  to   space 2560K, 0% used [0x9f100000,0x9f100000,0x9f380000)
+ ParOldGen       total 43520K, used 806K [0x73380000, 0x75e00000, 0x9de00000)
+  object space 43520K, 1% used [0x73380000,0x73449bc8,0x75e00000)
+ PSPermGen       total 16384K, used 4963K [0x6f380000, 0x70380000, 0x73380000)
+  object space 16384K, 30% used [0x6f380000,0x6f858d28,0x70380000)
+}
+
+Deoptimization events (2 events):
+Event: 0.381 Thread 0xb670bc00 Uncommon trap: reason=null_check action=make_not_entrant pc=0xb34c5ab0 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 39.573 Thread 0xb670bc00 Uncommon trap: reason=unreached action=reinterpret pc=0xb34e4f14 method=java.lang.AbstractStringBuilder.append(Ljava/lang/String;)Ljava/lang/AbstractStringBuilder; @ 1
+
+Internal exceptions (10 events):
+Event: 2.514 Thread 0xb670bc00 Threw 0x9e785fc8 at /HUDSON/workspace/7u-2-build-linux-i586/jdk7u51/527/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 2.514 Thread 0xb670bc00 Threw 0x9e78ade0 at /HUDSON/workspace/7u-2-build-linux-i586/jdk7u51/527/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 2.533 Thread 0xb670bc00 Threw 0x9e79f788 at /HUDSON/workspace/7u-2-build-linux-i586/jdk7u51/527/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 2.533 Thread 0xb670bc00 Threw 0x9e7acad0 at /HUDSON/workspace/7u-2-build-linux-i586/jdk7u51/527/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 2.534 Thread 0xb670bc00 Threw 0x9e7b1180 at /HUDSON/workspace/7u-2-build-linux-i586/jdk7u51/527/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 2.534 Thread 0xb670bc00 Threw 0x9e7b59f0 at /HUDSON/workspace/7u-2-build-linux-i586/jdk7u51/527/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 2.535 Thread 0xb670bc00 Threw 0x9e7ba238 at /HUDSON/workspace/7u-2-build-linux-i586/jdk7u51/527/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 2.536 Thread 0xb670bc00 Threw 0x9e7c2180 at /HUDSON/workspace/7u-2-build-linux-i586/jdk7u51/527/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 4.958 Thread 0xb670bc00 Threw 0x9e8181f8 at /HUDSON/workspace/7u-2-build-linux-i586/jdk7u51/527/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 39.573 Thread 0xb670bc00 Implicit null exception at 0xb34e4b1f to 0xb34e4f01
+
+Events (10 events):
+Event: 48.497 Executing VM operation: ChangeSingleStep
+Event: 48.497 Executing VM operation: ChangeSingleStep done
+Event: 48.605 Executing VM operation: GetOrSetLocal
+Event: 48.605 Executing VM operation: GetOrSetLocal done
+Event: 48.608 Executing VM operation: GetOrSetLocal
+Event: 48.608 Executing VM operation: GetOrSetLocal done
+Event: 48.609 Executing VM operation: GetOrSetLocal
+Event: 48.609 Executing VM operation: GetOrSetLocal done
+Event: 48.617 Executing VM operation: GetOrSetLocal
+Event: 48.617 Executing VM operation: GetOrSetLocal done
+
+
+Dynamic libraries:
+08048000-08049000 r-xp 00000000 08:05 799445     /usr/lib/jvm/java-7-oracle/bin/java
+08049000-0804a000 rw-p 00000000 08:05 799445     /usr/lib/jvm/java-7-oracle/bin/java
+09331000-09352000 rw-p 00000000 00:00 0          [heap]
+6a0ed000-6a25e000 rw-p 00000000 00:00 0 
+6a25e000-6a261000 ---p 00000000 00:00 0 
+6a261000-6a2af000 rw-p 00000000 00:00 0 
+6a2af000-6a2b2000 ---p 00000000 00:00 0 
+6a2b2000-6a300000 rw-p 00000000 00:00 0 
+6a400000-6a4a4000 rw-p 00000000 00:00 0 
+6a4a4000-6a500000 ---p 00000000 00:00 0 
+6a500000-6a57c000 rw-p 00000000 00:00 0 
+6a57c000-6a600000 ---p 00000000 00:00 0 
+6a63c000-6a640000 r--s 000f7000 08:05 11797030   /usr/lib/jvm/java-7-oracle/jre/lib/ext/localedata.jar
+6a640000-6a643000 ---p 00000000 00:00 0 
+6a643000-6a691000 rw-p 00000000 00:00 0 
+6a691000-6a694000 ---p 00000000 00:00 0 
+6a694000-6a6e2000 rw-p 00000000 00:00 0 
+6a6e2000-6a6fe000 r-xp 00000000 08:05 9962420    /lib/i386-linux-gnu/libgcc_s.so.1
+6a6fe000-6a6ff000 r--p 0001b000 08:05 9962420    /lib/i386-linux-gnu/libgcc_s.so.1
+6a6ff000-6a700000 rw-p 0001c000 08:05 9962420    /lib/i386-linux-gnu/libgcc_s.so.1
+6a700000-6a800000 rw-p 00000000 00:00 0 
+6a800000-6a900000 rw-p 00000000 00:00 0 
+6a900000-6a9ef000 rw-p 00000000 00:00 0 
+6a9ef000-6aa00000 ---p 00000000 00:00 0 
+6aa00000-6aafb000 rw-p 00000000 00:00 0 
+6aafb000-6ab00000 ---p 00000000 00:00 0 
+6ab00000-6abfd000 rw-p 00000000 00:00 0 
+6abfd000-6ac00000 ---p 00000000 00:00 0 
+6ac01000-6ac04000 ---p 00000000 00:00 0 
+6ac04000-6ac1a000 rw-p 00000000 00:00 0 
+6ac1a000-6ac1e000 r--s 0002d000 08:05 11797884   /usr/lib/jvm/java-7-oracle/jre/lib/ext/sunjce_provider.jar
+6ac1e000-6ac51000 r-xp 00000000 08:05 799401     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libsunec.so
+6ac51000-6ac55000 rw-p 00032000 08:05 799401     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libsunec.so
+6ac55000-6ac59000 rw-p 00000000 00:00 0 
+6ac59000-6ac6e000 r-xp 00000000 08:05 799380     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libnet.so
+6ac6e000-6ac6f000 rw-p 00014000 08:05 799380     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libnet.so
+6ac6f000-6acfe000 r--s 00de3000 08:05 10890729   /usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar
+6acfe000-6acff000 ---p 00000000 00:00 0 
+6acff000-6ad7f000 rw-p 00000000 00:00 0 
+6ad7f000-6ad82000 ---p 00000000 00:00 0 
+6ad82000-6ae00000 rw-p 00000000 00:00 0 
+6ae00000-6aefb000 rw-p 00000000 00:00 0 
+6aefb000-6af00000 ---p 00000000 00:00 0 
+6af01000-6af02000 r--s 00003000 08:05 11796993   /usr/lib/jvm/java-7-oracle/jre/lib/ext/sunec.jar
+6af02000-6af04000 r--s 00019000 08:05 10890670   /usr/lib/jvm/java-7-oracle/jre/lib/jce.jar
+6af04000-6af08000 r--s 0008a000 08:05 10890735   /usr/lib/jvm/java-7-oracle/jre/lib/jsse.jar
+6af08000-6af0d000 r--s 0002a000 08:05 9586589    /home/traxaem/.m2/repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar
+6af0d000-6af13000 r--s 00045000 08:05 9320489    /home/traxaem/.m2/repository/org/hamcrest/hamcrest-all/1.3/hamcrest-all-1.3.jar
+6af13000-6af19000 r--s 00039000 08:05 9320487    /home/traxaem/.m2/repository/org/yaml/snakeyaml/1.8/snakeyaml-1.8.jar
+6af19000-6af27000 r--s 000eb000 08:05 9320484    /home/traxaem/.m2/repository/org/seleniumhq/selenium/jetty-repacked/7.6.1/jetty-repacked-7.6.1.jar
+6af27000-6af2a000 r--s 0001e000 08:05 9320481    /home/traxaem/.m2/repository/org/mortbay/jetty/servlet-api-2.5/6.1.9/servlet-api-2.5-6.1.9.jar
+6af2a000-6af35000 r--s 0006f000 08:05 9320479    /home/traxaem/.m2/repository/mx4j/mx4j-tools/3.0.1/mx4j-tools-3.0.1.jar
+6af35000-6af68000 r--s 00203000 08:05 9320475    /home/traxaem/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar
+6af68000-6af7f000 r--s 00221000 08:05 9320473    /home/traxaem/.m2/repository/org/seleniumhq/selenium/selenium-server/2.33.0/selenium-server-2.33.0.jar
+6af7f000-6af82000 ---p 00000000 00:00 0 
+6af82000-6b000000 rw-p 00000000 00:00 0 
+6b000000-6b021000 rw-p 00000000 00:00 0 
+6b021000-6b100000 ---p 00000000 00:00 0 
+6b100000-6b1fc000 rw-p 00000000 00:00 0 
+6b1fc000-6b200000 ---p 00000000 00:00 0 
+6b200000-6b221000 rw-p 00000000 00:00 0 
+6b221000-6b300000 ---p 00000000 00:00 0 
+6b300000-6b321000 rw-p 00000000 00:00 0 
+6b321000-6b400000 ---p 00000000 00:00 0 
+6b400000-6b421000 rw-p 00000000 00:00 0 
+6b421000-6b500000 ---p 00000000 00:00 0 
+6b500000-6b5f7000 rw-p 00000000 00:00 0 
+6b5f7000-6b600000 ---p 00000000 00:00 0 
+6b601000-6b602000 rw-p 00000000 00:00 0 
+6b602000-6b610000 r--s 00081000 08:05 9320477    /home/traxaem/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar
+6b610000-6b611000 r--s 00002000 08:05 9320472    /home/traxaem/.m2/repository/com/github/detro/ghostdriver/phantomjsdriver/1.0.4/phantomjsdriver-1.0.4.jar
+6b611000-6b615000 r--s 0001c000 08:05 9320469    /home/traxaem/.m2/repository/org/seleniumhq/selenium/selenium-support/2.34.0/selenium-support-2.34.0.jar
+6b615000-6b62a000 r--s 000fd000 08:05 9320468    /home/traxaem/.m2/repository/io/netty/netty/3.5.2.Final/netty-3.5.2.Final.jar
+6b62a000-6b62f000 r--s 00024000 08:05 9320465    /home/traxaem/.m2/repository/org/webbitserver/webbit/0.4.14/webbit-0.4.14.jar
+6b62f000-6b631000 r--s 00042000 08:05 9320464    /home/traxaem/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/2.34.0/selenium-safari-driver-2.34.0.jar
+6b631000-6b633000 r--s 00002000 08:05 9320461    /home/traxaem/.m2/repository/org/seleniumhq/selenium/selenium-iphone-driver/2.34.0/selenium-iphone-driver-2.34.0.jar
+6b633000-6b634000 r--s 00002000 08:05 9320460    /home/traxaem/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/2.34.0/selenium-ie-driver-2.34.0.jar
+6b634000-6b636000 r--s 0027c000 08:05 9320459    /home/traxaem/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/2.34.0/selenium-firefox-driver-2.34.0.jar
+6b636000-6b639000 r--s 00017000 08:05 9320454    /home/traxaem/.m2/repository/org/eclipse/jetty/jetty-io/8.1.9.v20130131/jetty-io-8.1.9.v20130131.jar
+6b639000-6b63e000 r--s 00041000 08:05 9320451    /home/traxaem/.m2/repository/org/eclipse/jetty/jetty-util/8.1.9.v20130131/jetty-util-8.1.9.v20130131.jar
+6b63e000-6b641000 r--s 0001c000 08:05 9320450    /home/traxaem/.m2/repository/org/eclipse/jetty/jetty-websocket/8.1.9.v20130131/jetty-websocket-8.1.9.v20130131.jar
+6b641000-6b65a000 r--s 00134000 08:05 9320440    /home/traxaem/.m2/repository/xerces/xercesImpl/2.10.0/xercesImpl-2.10.0.jar
+6b65a000-6b67f000 r--s 002e3000 08:05 9320425    /home/traxaem/.m2/repository/xalan/xalan/2.7.1/xalan-2.7.1.jar
+6b67f000-6b680000 ---p 00000000 00:00 0 
+6b680000-6b700000 rw-p 00000000 00:00 0 
+6b700000-6b7f9000 rw-p 00000000 00:00 0 
+6b7f9000-6b800000 ---p 00000000 00:00 0 
+6b800000-6b801000 rw-p 00000000 00:00 0 
+6b801000-6b805000 r--s 00027000 08:05 9320447    /home/traxaem/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar
+6b805000-6b809000 r--s 00053000 08:05 9320443    /home/traxaem/.m2/repository/net/sourceforge/cssparser/cssparser/0.9.9/cssparser-0.9.9.jar
+6b809000-6b816000 r--s 000ec000 08:05 9320439    /home/traxaem/.m2/repository/net/sourceforge/htmlunit/htmlunit-core-js/2.12/htmlunit-core-js-2.12.jar
+6b816000-6b819000 ---p 00000000 00:00 0 
+6b819000-6b867000 rw-p 00000000 00:00 0 
+6b867000-6b86a000 ---p 00000000 00:00 0 
+6b86a000-6b903000 rw-p 00000000 00:00 0 
+6b903000-6bac0000 r--s 039bf000 08:05 10890672   /usr/lib/jvm/java-7-oracle/jre/lib/rt.jar
+6bac0000-6e100000 rw-p 00000000 00:00 0 
+6e100000-6e121000 rw-p 00000000 00:00 0 
+6e121000-6e200000 ---p 00000000 00:00 0 
+6e200000-6e201000 rw-p 00000000 00:00 0 
+6e201000-6e203000 r--s 00005000 08:05 9320435    /home/traxaem/.m2/repository/org/apache/httpcomponents/httpmime/4.2.3/httpmime-4.2.3.jar
+6e203000-6e209000 r--s 00048000 08:05 9320433    /home/traxaem/.m2/repository/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar
+6e209000-6e217000 r--s 0007f000 08:05 9320431    /home/traxaem/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar
+6e217000-6e22e000 r--s 0011e000 08:05 9320423    /home/traxaem/.m2/repository/net/sourceforge/htmlunit/htmlunit/2.12/htmlunit-2.12.jar
+6e22e000-6e231000 ---p 00000000 00:00 0 
+6e231000-6e27f000 rw-p 00000000 00:00 0 
+6e27f000-6e280000 ---p 00000000 00:00 0 
+6e280000-6e300000 rw-p 00000000 00:00 0 
+6e300000-6e321000 rw-p 00000000 00:00 0 
+6e321000-6e400000 ---p 00000000 00:00 0 
+6e400000-6e402000 r--s 00016000 08:05 9320455    /home/traxaem/.m2/repository/org/eclipse/jetty/jetty-http/8.1.9.v20130131/jetty-http-8.1.9.v20130131.jar
+6e402000-6e405000 r--s 0001c000 08:05 9320441    /home/traxaem/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.18/nekohtml-1.9.18.jar
+6e405000-6e40e000 r--s 0002d000 08:05 9320430    /home/traxaem/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar
+6e40e000-6e410000 r--s 0000c000 08:05 9320422    /home/traxaem/.m2/repository/org/seleniumhq/selenium/selenium-htmlunit-driver/2.34.0/selenium-htmlunit-driver-2.34.0.jar
+6e410000-6e411000 r--s 00002000 08:05 9320419    /home/traxaem/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/2.34.0/selenium-chrome-driver-2.34.0.jar
+6e411000-6e41c000 r--s 000d5000 08:05 9320417    /home/traxaem/.m2/repository/net/java/dev/jna/platform/3.4.0/platform-3.4.0.jar
+6e41c000-6e420000 r--s 000f3000 08:05 9320416    /home/traxaem/.m2/repository/net/java/dev/jna/jna/3.4.0/jna-3.4.0.jar
+6e420000-6e422000 r--s 0000b000 08:05 9320413    /home/traxaem/.m2/repository/org/apache/commons/commons-exec/1.1/commons-exec-1.1.jar
+6e422000-6e428000 r--s 00033000 08:05 9320412    /home/traxaem/.m2/repository/commons-codec/commons-codec/1.6/commons-codec-1.6.jar
+6e428000-6e42e000 r--s 00031000 08:05 9320408    /home/traxaem/.m2/repository/org/apache/httpcomponents/httpcore/4.2.1/httpcore-4.2.1.jar
+6e42e000-6e431000 ---p 00000000 00:00 0 
+6e431000-6e47f000 rw-p 00000000 00:00 0 
+6e47f000-6e480000 ---p 00000000 00:00 0 
+6e480000-6e500000 rw-p 00000000 00:00 0 
+6e500000-6e521000 rw-p 00000000 00:00 0 
+6e521000-6e600000 ---p 00000000 00:00 0 
+6e600000-6e603000 r--s 00041000 08:05 9320427    /home/traxaem/.m2/repository/xalan/serializer/2.7.1/serializer-2.7.1.jar
+6e603000-6e605000 r--s 0000d000 08:05 9320409    /home/traxaem/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+6e605000-6e62e000 r--s 001ee000 08:05 9320403    /home/traxaem/.m2/repository/com/google/guava/guava/14.0/guava-14.0.jar
+6e62e000-6e631000 ---p 00000000 00:00 0 
+6e631000-6e67f000 rw-p 00000000 00:00 0 
+6e67f000-6e680000 ---p 00000000 00:00 0 
+6e680000-6e700000 rw-p 00000000 00:00 0 
+6e700000-6e721000 rw-p 00000000 00:00 0 
+6e721000-6e800000 ---p 00000000 00:00 0 
+6e800000-6e80a000 r--s 0005f000 08:05 9320407    /home/traxaem/.m2/repository/org/apache/httpcomponents/httpclient/4.2.1/httpclient-4.2.1.jar
+6e80a000-6e80f000 r--s 0001e000 08:05 9320401    /home/traxaem/.m2/repository/org/seleniumhq/selenium/selenium-api/2.34.0/selenium-api-2.34.0.jar
+6e80f000-6e811000 r--s 00008000 08:05 9320400    /home/traxaem/.m2/repository/org/json/json/20080701/json-20080701.jar
+6e811000-6e818000 r--s 00049000 08:05 9320397    /home/traxaem/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar
+6e818000-6e81d000 r--s 00035000 08:05 9320393    /home/traxaem/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/2.33.0/selenium-remote-driver-2.33.0.jar
+6e81d000-6e81f000 r--s 00052000 08:05 9320391    /home/traxaem/.m2/repository/org/seleniumhq/selenium/selenium-android-driver/2.34.0/selenium-android-driver-2.34.0.jar
+6e81f000-6e824000 r--s 0005a000 08:05 9320394    /home/traxaem/.m2/repository/org/seleniumhq/selenium/selenium-java/2.34.0/selenium-java-2.34.0.jar
+6e824000-6e82a000 r--s 00036000 08:05 9320390    /home/traxaem/.m2/repository/junit/junit/4.11/junit-4.11.jar
+6e82a000-6e82e000 r--s 0008a000 08:05 10890735   /usr/lib/jvm/java-7-oracle/jre/lib/jsse.jar
+6e82e000-6e831000 ---p 00000000 00:00 0 
+6e831000-6e87f000 rw-p 00000000 00:00 0 
+6e87f000-6e880000 ---p 00000000 00:00 0 
+6e880000-6e900000 rw-p 00000000 00:00 0 
+6e900000-6e921000 rw-p 00000000 00:00 0 
+6e921000-6ea00000 ---p 00000000 00:00 0 
+6ea00000-6ea02000 r--s 00009000 08:05 9320392    /home/traxaem/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+6ea02000-6ea0b000 r--s 000d4000 08:05 10890701   /usr/lib/jvm/java-7-oracle/jre/lib/javaws.jar
+6ea0b000-6ea23000 r--s 00439000 08:05 10890693   /usr/lib/jvm/java-7-oracle/jre/lib/deploy.jar
+6ea23000-6ea2e000 r--s 0037c000 08:05 10890690   /usr/lib/jvm/java-7-oracle/jre/lib/charsets.jar
+6ea2e000-6ea31000 ---p 00000000 00:00 0 
+6ea31000-6ea7f000 rw-p 00000000 00:00 0 
+6ea7f000-6ea80000 ---p 00000000 00:00 0 
+6ea80000-6eb00000 rw-p 00000000 00:00 0 
+6eb00000-6eb21000 rw-p 00000000 00:00 0 
+6eb21000-6ec00000 ---p 00000000 00:00 0 
+6ec00000-6ec21000 rw-p 00000000 00:00 0 
+6ec21000-6ed00000 ---p 00000000 00:00 0 
+6ed00000-6ed0a000 r--s 00250000 08:05 10890692   /usr/lib/jvm/java-7-oracle/jre/lib/resources.jar
+6ed0a000-6ed7f000 rw-p 00000000 00:00 0 
+6ed7f000-6ed80000 ---p 00000000 00:00 0 
+6ed80000-6ee00000 rw-p 00000000 00:00 0 
+6ee00000-6ee21000 rw-p 00000000 00:00 0 
+6ee21000-6ef00000 ---p 00000000 00:00 0 
+6ef00000-6ef01000 r--s 00000000 08:05 9320485    /home/traxaem/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar
+6ef01000-6ef07000 r--s 0007d000 08:05 10890691   /usr/lib/jvm/java-7-oracle/jre/lib/jfr.jar
+6ef07000-6ef08000 ---p 00000000 00:00 0 
+6ef08000-6ef88000 rw-p 00000000 00:00 0 
+6ef88000-6ef89000 ---p 00000000 00:00 0 
+6ef89000-6f01f000 rw-p 00000000 00:00 0 
+6f01f000-6f15f000 rw-p 00000000 00:00 0 
+6f15f000-6f167000 rw-p 00000000 00:00 0 
+6f167000-6f17f000 rw-p 00000000 00:00 0 
+6f17f000-6f195000 rw-p 00000000 00:00 0 
+6f195000-6f2d4000 rw-p 00000000 00:00 0 
+6f2d4000-6f2df000 rw-p 00000000 00:00 0 
+6f2df000-6f37f000 rw-p 00000000 00:00 0 
+6f37f000-70380000 rw-p 00000000 00:00 0 
+70380000-73380000 rw-p 00000000 00:00 0 
+73380000-75e00000 rw-p 00000000 00:00 0 
+75e00000-9de00000 rw-p 00000000 00:00 0 
+9de00000-9f380000 rw-p 00000000 00:00 0 
+9f380000-b3380000 rw-p 00000000 00:00 0 
+b3380000-b3381000 r--s 00003000 08:05 9320446    /home/traxaem/.m2/repository/org/w3c/css/sac/1.3/sac-1.3.jar
+b3381000-b3394000 r--s 001a6000 08:05 10890684   /usr/lib/jvm/java-7-oracle/jre/lib/plugin.jar
+b3394000-b339c000 rw-p 00000000 00:00 0 
+b339c000-b33b4000 rw-p 00000000 00:00 0 
+b33b4000-b33bd000 rw-p 00000000 00:00 0 
+b33bd000-b3474000 rw-p 00000000 00:00 0 
+b3474000-b36b4000 rwxp 00000000 00:00 0 
+b36b4000-b6474000 rw-p 00000000 00:00 0 
+b6474000-b648b000 r-xp 00000000 08:05 799387     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libzip.so
+b648b000-b648c000 rw-p 00017000 08:05 799387     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libzip.so
+b648c000-b6497000 r-xp 00000000 08:05 9973667    /lib/i386-linux-gnu/libnss_files-2.15.so
+b6497000-b6498000 r--p 0000a000 08:05 9973667    /lib/i386-linux-gnu/libnss_files-2.15.so
+b6498000-b6499000 rw-p 0000b000 08:05 9973667    /lib/i386-linux-gnu/libnss_files-2.15.so
+b6499000-b64a3000 r-xp 00000000 08:05 9973666    /lib/i386-linux-gnu/libnss_nis-2.15.so
+b64a3000-b64a4000 r--p 00009000 08:05 9973666    /lib/i386-linux-gnu/libnss_nis-2.15.so
+b64a4000-b64a5000 rw-p 0000a000 08:05 9973666    /lib/i386-linux-gnu/libnss_nis-2.15.so
+b64a5000-b64bb000 r-xp 00000000 08:05 9973653    /lib/i386-linux-gnu/libnsl-2.15.so
+b64bb000-b64bc000 r--p 00015000 08:05 9973653    /lib/i386-linux-gnu/libnsl-2.15.so
+b64bc000-b64bd000 rw-p 00016000 08:05 9973653    /lib/i386-linux-gnu/libnsl-2.15.so
+b64bd000-b64bf000 rw-p 00000000 00:00 0 
+b64bf000-b64c6000 r-xp 00000000 08:05 9973668    /lib/i386-linux-gnu/libnss_compat-2.15.so
+b64c6000-b64c7000 r--p 00006000 08:05 9973668    /lib/i386-linux-gnu/libnss_compat-2.15.so
+b64c7000-b64c8000 rw-p 00007000 08:05 9973668    /lib/i386-linux-gnu/libnss_compat-2.15.so
+b64c8000-b66c8000 r--p 00000000 08:05 10228085   /usr/lib/locale/locale-archive
+b66c8000-b66ff000 r-xp 00000000 08:05 799360     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libjdwp.so
+b66ff000-b6700000 rw-p 00037000 08:05 799360     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libjdwp.so
+b6700000-b67f7000 rw-p 00000000 00:00 0 
+b67f7000-b6800000 ---p 00000000 00:00 0 
+b6800000-b6802000 r--s 00019000 08:05 10890670   /usr/lib/jvm/java-7-oracle/jre/lib/jce.jar
+b6802000-b6804000 r--s 0001d000 08:05 9317309    /home/traxaem/Desktop/daddownloads/idea-IC-133.696/plugins/junit/lib/junit-rt.jar
+b6804000-b6807000 r-xp 00000000 08:05 799403     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libdt_socket.so
+b6807000-b6808000 rw-p 00003000 08:05 799403     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libdt_socket.so
+b6808000-b680f000 r--s 00000000 08:05 10235687   /usr/lib/i386-linux-gnu/gconv/gconv-modules.cache
+b680f000-b6817000 rw-s 00000000 08:05 10490510   /tmp/hsperfdata_traxaem/29321
+b6817000-b683a000 r-xp 00000000 08:05 799402     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libjava.so
+b683a000-b683b000 rw-p 00022000 08:05 799402     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libjava.so
+b683b000-b6842000 r-xp 00000000 08:05 9973661    /lib/i386-linux-gnu/librt-2.15.so
+b6842000-b6843000 r--p 00006000 08:05 9973661    /lib/i386-linux-gnu/librt-2.15.so
+b6843000-b6844000 rw-p 00007000 08:05 9973661    /lib/i386-linux-gnu/librt-2.15.so
+b6844000-b6847000 ---p 00000000 00:00 0 
+b6847000-b6895000 rw-p 00000000 00:00 0 
+b6895000-b68bf000 r-xp 00000000 08:05 9973665    /lib/i386-linux-gnu/libm-2.15.so
+b68bf000-b68c0000 r--p 00029000 08:05 9973665    /lib/i386-linux-gnu/libm-2.15.so
+b68c0000-b68c1000 rw-p 0002a000 08:05 9973665    /lib/i386-linux-gnu/libm-2.15.so
+b68c1000-b7138000 r-xp 00000000 08:05 799396     /usr/lib/jvm/java-7-oracle/jre/lib/i386/server/libjvm.so
+b7138000-b719c000 rw-p 00877000 08:05 799396     /usr/lib/jvm/java-7-oracle/jre/lib/i386/server/libjvm.so
+b719c000-b75c0000 rw-p 00000000 00:00 0 
+b75c0000-b7764000 r-xp 00000000 08:05 9973670    /lib/i386-linux-gnu/libc-2.15.so
+b7764000-b7766000 r--p 001a4000 08:05 9973670    /lib/i386-linux-gnu/libc-2.15.so
+b7766000-b7767000 rw-p 001a6000 08:05 9973670    /lib/i386-linux-gnu/libc-2.15.so
+b7767000-b776a000 rw-p 00000000 00:00 0 
+b776a000-b776d000 r-xp 00000000 08:05 9973669    /lib/i386-linux-gnu/libdl-2.15.so
+b776d000-b776e000 r--p 00002000 08:05 9973669    /lib/i386-linux-gnu/libdl-2.15.so
+b776e000-b776f000 rw-p 00003000 08:05 9973669    /lib/i386-linux-gnu/libdl-2.15.so
+b776f000-b7770000 rw-p 00000000 00:00 0 
+b7770000-b7783000 r-xp 00000000 08:05 800493     /usr/lib/jvm/java-7-oracle/lib/i386/jli/libjli.so
+b7783000-b7784000 rw-p 00012000 08:05 800493     /usr/lib/jvm/java-7-oracle/lib/i386/jli/libjli.so
+b7784000-b779b000 r-xp 00000000 08:05 9973659    /lib/i386-linux-gnu/libpthread-2.15.so
+b779b000-b779c000 r--p 00016000 08:05 9973659    /lib/i386-linux-gnu/libpthread-2.15.so
+b779c000-b779d000 rw-p 00017000 08:05 9973659    /lib/i386-linux-gnu/libpthread-2.15.so
+b779d000-b779f000 rw-p 00000000 00:00 0 
+b779f000-b77a0000 r--s 00000000 08:05 10890733   /usr/lib/jvm/java-7-oracle/jre/lib/management-agent.jar
+b77a0000-b77a3000 r--s 00014000 08:05 9183052    /home/traxaem/Desktop/daddownloads/idea-IC-133.696/lib/idea_rt.jar
+b77a3000-b77a4000 r--p 005e0000 08:05 10228085   /usr/lib/locale/locale-archive
+b77a4000-b77a6000 r-xp 00000000 08:05 799372     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libnpt.so
+b77a6000-b77a7000 rw-p 00002000 08:05 799372     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libnpt.so
+b77a7000-b77a8000 rw-p 00000000 00:00 0 
+b77a8000-b77a9000 r--p 00000000 00:00 0 
+b77a9000-b77b4000 r-xp 00000000 08:05 799415     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libverify.so
+b77b4000-b77b5000 rw-p 0000b000 08:05 799415     /usr/lib/jvm/java-7-oracle/jre/lib/i386/libverify.so
+b77b5000-b77b7000 rw-p 00000000 00:00 0 
+b77b7000-b77b8000 r-xp 00000000 00:00 0          [vdso]
+b77b8000-b77d8000 r-xp 00000000 08:05 9973660    /lib/i386-linux-gnu/ld-2.15.so
+b77d8000-b77d9000 r--p 0001f000 08:05 9973660    /lib/i386-linux-gnu/ld-2.15.so
+b77d9000-b77da000 rw-p 00020000 08:05 9973660    /lib/i386-linux-gnu/ld-2.15.so
+bf90b000-bf92d000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:39921,suspend=y,server=n -ea -Dfile.encoding=UTF-8 
+java_command: com.intellij.rt.execution.junit.JUnitStarter -ideVersion5 com.testing.selenium.pagetests.NewTests.NewseleniumTests,test_03_formSubmit
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+CLASSPATH=/home/traxaem/Desktop/daddownloads/idea-IC-133.696/bin/../lib/bootstrap.jar:/home/traxaem/Desktop/daddownloads/idea-IC-133.696/bin/../lib/extensions.jar:/home/traxaem/Desktop/daddownloads/idea-IC-133.696/bin/../lib/util.jar:/home/traxaem/Desktop/daddownloads/idea-IC-133.696/bin/../lib/jdom.jar:/home/traxaem/Desktop/daddownloads/idea-IC-133.696/bin/../lib/log4j.jar:/home/traxaem/Desktop/daddownloads/idea-IC-133.696/bin/../lib/trove4j.jar:/home/traxaem/Desktop/daddownloads/idea-IC-133.696/bin/../lib/jna.jar:/usr/lib/jvm/java-7-oracle/lib/tools.jar
+PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+LD_LIBRARY_PATH=/home/traxaem/Desktop/daddownloads/idea-IC-133.696/bin:
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x7dd5e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x7dd5e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x678d60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x678d60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x678d60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x678d60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x67a250], sa_mask[0]=0x00000004, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x67b3a0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x67b3a0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x67b3a0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x67b3a0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:wheezy/sid
+
+uname:Linux 3.2.0-58-generic-pae #88-Ubuntu SMP Tue Dec 3 18:00:02 UTC 2013 i686
+libc:glibc 2.15 NPTL 2.15 
+rlimit: STACK 8192k, CORE 0k, NPROC 47492, NOFILE 4096, AS infinity
+load average:0.66 0.41 0.30
+
+/proc/meminfo:
+MemTotal:        6093644 kB
+MemFree:         1996760 kB
+Buffers:          429728 kB
+Cached:          1801688 kB
+SwapCached:            0 kB
+Active:          2528660 kB
+Inactive:        1216960 kB
+Active(anon):    1668192 kB
+Inactive(anon):   293832 kB
+Active(file):     860468 kB
+Inactive(file):   923128 kB
+Unevictable:          16 kB
+Mlocked:              16 kB
+HighTotal:       5283284 kB
+HighFree:        1933532 kB
+LowTotal:         810360 kB
+LowFree:           63228 kB
+SwapTotal:       6191100 kB
+SwapFree:        6191100 kB
+Dirty:              5892 kB
+Writeback:             0 kB
+AnonPages:       1514384 kB
+Mapped:           214952 kB
+Shmem:            447820 kB
+Slab:             275844 kB
+SReclaimable:     244124 kB
+SUnreclaim:        31720 kB
+KernelStack:        6256 kB
+PageTables:        21432 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     9237920 kB
+Committed_AS:    6417468 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       67428 kB
+VmallocChunk:      43228 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       10232 kB
+DirectMap2M:      903168 kB
+
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 42 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, ht, tsc, tscinvbit
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz
+stepping	: 7
+microcode	: 0x25
+cpu MHz		: 1100.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4389.93
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz
+stepping	: 7
+microcode	: 0x25
+cpu MHz		: 2201.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4389.83
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz
+stepping	: 7
+microcode	: 0x25
+cpu MHz		: 800.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4389.83
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz
+stepping	: 7
+microcode	: 0x25
+cpu MHz		: 800.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4389.83
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz
+stepping	: 7
+microcode	: 0x25
+cpu MHz		: 2201.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4389.83
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz
+stepping	: 7
+microcode	: 0x25
+cpu MHz		: 800.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4389.82
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz
+stepping	: 7
+microcode	: 0x25
+cpu MHz		: 2201.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4389.84
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz
+stepping	: 7
+microcode	: 0x25
+cpu MHz		: 2201.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 4389.83
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 6093644k(1996760k free), swap 6191100k(6191100k free)
+
+vm_info: Java HotSpot(TM) Server VM (24.51-b03) for linux-x86 JRE (1.7.0_51-b13), built on Dec 18 2013 18:45:30 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Tue Feb 18 18:15:42 2014
+elapsed time: 48 seconds
+
